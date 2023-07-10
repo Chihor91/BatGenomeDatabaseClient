@@ -15,7 +15,7 @@ jobs:
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       - name: docker build project
         run: |
-          docker build -t "avmagnaye/batgenomedatabaseclient:latest" .
+          docker build -t "chihor91/batgenomedatabaseclient:latest" .
       - name: docker push
         run: |
-          docker push avmagnaye/batgenomedatabaseclient:latest
+          docker push chihor91/batgenomedatabaseclient:latest
