@@ -9,8 +9,8 @@ if (localStorage.logged_in === undefined) {
   localStorage.logged_in = false;
 }
 
-// axios.defaults.baseURL = "http://127.0.0.1:8000/";
-axios.defaults.baseURL = "http://202.92.144.124:8000/";
+axios.defaults.baseURL = "http://127.0.0.1:8000/";
+// axios.defaults.baseURL = "http://202.92.144.124:8000/";
 axios.defaults.headers.common["Authorization"] =
   "Bearer " + localStorage.access;
 
