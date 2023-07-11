@@ -6,7 +6,7 @@ export class About extends Component {
   render() {
     return (
       <div>
-        <Sidebar Crumb={this.props.Crumb} Match={this.props.match} />
+        {/* <Sidebar Crumb={this.props.Crumb} Match={this.props.match} /> */}
         About page
       </div>
     );
