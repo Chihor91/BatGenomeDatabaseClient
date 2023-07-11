@@ -7,6 +7,7 @@ import StrainDetail from "./pages/strain/StrainDetail";
 import CategoryList from "./components/taxonomy_handler/CategoryList";
 import TaxonomyDetail from "./pages/taxonomy/TaxonomyDetail";
 import Profile from "./pages/profile/Profile";
+import Dashboard from "./pages/dashboard/Dashboard";
 
 var routes = [
   // Taxonomy
@@ -107,6 +108,12 @@ var routes = [
     path: "/",
     component: Home,
     name: "home",
+  },
+
+  {
+    path: "/dashboard",
+    component: Dashboard,
+    name: "dashboard",
   },
 ];
 
