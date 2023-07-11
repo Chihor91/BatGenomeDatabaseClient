@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Sidebar.css";
+import MenuIcon from '@mui/icons-material/Menu';
+import { IconButton } from "@mui/material";
 
 export default class Sidebar extends Component {
   constructor(props) {
@@ -28,19 +30,9 @@ export default class Sidebar extends Component {
   render() {
     return (
       <div className="sidebarFormat">
-        <svg
-          className="w-6 h-6 openbtn"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-          onClick={this.toggle_show}
-        >
-          <path
-            fillRule="evenodd"
-            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-            clipRule="evenodd"
-          />
-        </svg>
+        <IconButton aria-label="menu" onClick={this.toggle_show} sx={{color: "#101010"}}>
+          <MenuIcon/>
+        </IconButton>
         {/* &emsp; <Breadcrumb Crumb={this.props.Crumb} Match={this.props.Match} /> */}
         <div className={this.state.classname}>
           <svg

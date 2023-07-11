@@ -16,6 +16,7 @@
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+
 }
 
 .sidebar {
@@ -34,17 +35,18 @@
 
 /* The sidebar links */
 .sidebar a {
-  padding: 8px 8px 8px 32px;
+  padding: 0px .75em .75em 1em;
   text-decoration: none;
   font-size: 25px;
   color: #818181;
   display: block;
   transition: 0.3s;
+  font-family: monospace;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidebar a:hover {
-  color: #f1f1f1;
+  color: #dfb66c;
 }
 
 /* Position and style the close button (top right corner) */
@@ -60,12 +62,13 @@
 }
 
 .sidebar_inactive a {
-  padding: 8px 8px 8px 32px;
+  padding: 0px 0px 0px 1em;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 5px;
   color: #818181;
   display: block;
   transition: 0.3s;
+  font-family: monospace;
 }
 
 /* When you mouse over the navigation links, change their color */
@@ -99,8 +102,4 @@
 
 .openbtn:hover {
   background-color: rgb(173, 173, 173);
-}
-
-.breadcrumb {
-  display: flex;
 }

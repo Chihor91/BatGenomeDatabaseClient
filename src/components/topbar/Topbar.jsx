@@ -3,8 +3,19 @@ import "./Topbar.css";
 import { Link } from "react-router-dom";
 import history from "../..//history";
 import Sidebar from "../sidebar/Sidebar";
+import { Button } from "@mui/material";
 
 console.log("topbar logged_in", localStorage.logged_in);
+
+const styles = {
+  color: "#101010",
+  fontWeight: "bold",
+  fontFamily: "Monospace",
+  fontSize: 20,
+  '&:hover': {
+    backgroundColor: "#d4b66c"
+  }
+};
 
 export default class Topbar extends Component {
   constructor(props) {
@@ -28,7 +39,7 @@ export default class Topbar extends Component {
           <div className="topLeft">
             <Sidebar />
             <h1>
-              <a className="logo" href="http://localhost:3000/">
+              <a className="logo" href="/">
                 Bat Genome Database
               </a>
             </h1>
@@ -36,28 +47,39 @@ export default class Topbar extends Component {
           <div className="topRight">
             <ul className="pages">
               <li className="topBarButton">
+                
                 <Link className="topBarOption" to="/">
-                  Home
+                  <Button size="large" variant="text" sx={styles}>
+                    Home
+                  </Button>
                 </Link>
               </li>
               <li className="topBarButton">
                 <Link className="topBarOption" to="/dashboard">
-                  Dashboard
+                <Button size="large" variant="text" sx={styles}>
+                    Dashboard
+                  </Button>
                 </Link>
               </li>
               <li className="topBarButton">
                 <Link className="topBarOption" to="/about">
-                  About
+                <Button size="large" variant="text" sx={styles}>
+                    About
+                  </Button>
                 </Link>
               </li>
               <li className="topBarButton">
                 <Link className="topBarOption" to="/strain">
-                  Strain
+                <Button size="large" variant="text" sx={styles}>
+                    Strain
+                  </Button>
                 </Link>
               </li>
               <li className="topBarButton">
                 <Link className="topBarOption" to="/taxonomy">
-                  Taxonomy
+                <Button size="large" variant="text" sx={styles}>
+                    Taxonomy
+                  </Button>
                 </Link>
               </li>
               <li className="topBarButton">
@@ -70,10 +92,14 @@ export default class Topbar extends Component {
                       : "/profile"
                   }
                 >
-                  {localStorage.logged_in === undefined ||
-                  localStorage.logged_in === "false"
-                    ? "Login"
-                    : "Profile"}{" "}
+                  <Button size="large" variant="text" sx={styles}>
+                  {
+                    localStorage.logged_in === undefined ||
+                    localStorage.logged_in === "false"
+                      ? "Login"
+                      : "Profile"
+                  }
+                  </Button>
                 </Link>
               </li>
               {localStorage.logged_in === undefined ||
