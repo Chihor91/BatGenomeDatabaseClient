@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Breadcrumb } from "./Breadcrumb";
 import "./Sidebar.css";
 
 export default class Sidebar extends Component {
@@ -42,7 +41,7 @@ export default class Sidebar extends Component {
             clipRule="evenodd"
           />
         </svg>
-        &emsp; <Breadcrumb Crumb={this.props.Crumb} Match={this.props.Match} />
+        {/* &emsp; <Breadcrumb Crumb={this.props.Crumb} Match={this.props.Match} /> */}
         <div className={this.state.classname}>
           <svg
             className="w-6 h-6 closebtn"
@@ -58,6 +57,7 @@ export default class Sidebar extends Component {
             />
           </svg>
           <Link to="/">Home</Link>
+          <Link to="/dashboard">Dashboard</Link>
           <Link to="/about">About</Link>
           <Link to="/strain">Strain</Link>
           <Link to="/taxonomy">Taxonomy</Link>

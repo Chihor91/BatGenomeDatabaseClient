@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Topbar.css";
 import { Link } from "react-router-dom";
 import history from "../..//history";
+import Sidebar from "../sidebar/Sidebar";
 
 console.log("topbar logged_in", localStorage.logged_in);
 
@@ -25,6 +26,7 @@ export default class Topbar extends Component {
       <div className="topBar">
         <div className="topBarWrapper">
           <div className="topLeft">
+            <Sidebar />
             <h1>
               <a className="logo" href="http://localhost:3000/">
                 Bat Genome Database

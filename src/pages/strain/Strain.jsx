@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import StrainList from "../../components/strain_content/StrainList";
-import Sidebar from "../../components/sidebar/Sidebar";
 import "./Strain.css";
 import AddStrain from "../../components/strain_content/AddStrain";
+import Breadcrumb from "../../components/sidebar/Breadcrumb";
 
 export class Strain extends Component {
   constructor(props) {
@@ -29,7 +29,7 @@ export class Strain extends Component {
   render() {
     return (
       <div>
-        <Sidebar Crumb={this.props.Crumb} Match={this.props.match} />
+        <Breadcrumb Crumb={this.props.Crumb} Match={this.props.match} />
         <div className="strain_content">
           <div className="title_bar">
             <div className="left_title_bar">

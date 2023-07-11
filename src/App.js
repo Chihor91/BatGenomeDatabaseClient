@@ -32,7 +32,6 @@ function App() {
                   if (route.component === CategoryList) {
                     return (
                       <route.component
-                        // Sidebar=<Sidebar c
                         Category={
                           (route.name = route.name
                             .charAt(0)
@@ -45,7 +44,6 @@ function App() {
                   } else {
                     return (
                       <route.component
-                        // Sidebar=<Sidebar c
                         Crumb={route.path}
                       />
                     );
