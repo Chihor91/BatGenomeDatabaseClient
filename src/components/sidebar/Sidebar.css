@@ -14,8 +14,9 @@
   left: 0;
   background-color: #111; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+  margin-top: 100px;
+  padding-top: 1em; /* Place content 60px from the top */
+  transition: 0.3s; /* 0.5 second transition effect to slide in the sidebar */
 
 }
 
@@ -29,7 +30,8 @@
   left: 0;
   background-color: #111; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
+  margin-top: 100px;
+  padding-top: 1em; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
 }
 
@@ -49,57 +51,16 @@
   color: #dfb66c;
 }
 
-/* Position and style the close button (top right corner) */
-.sidebar .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-  margin-top: 25px;
-  width: 40px;
-  height: 40px;
-}
-
 .sidebar_inactive a {
-  padding: 0px 0px 0px 1em;
+  padding: 0px .75em .75em 1em;
   text-decoration: none;
-  font-size: 5px;
+  font-size: 25px;
   color: #818181;
   display: block;
   transition: 0.3s;
   font-family: monospace;
 }
 
-/* When you mouse over the navigation links, change their color */
-.sidebar_inactive a:hover {
-  color: #f1f1f1;
-}
-
-/* Position and style the close button (top right corner) */
-.sidebar_inactive .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-  margin-top: 25px;
-  width: 40px;
-  height: 40px;
-}
-
-/* The button used to open the sidebar */
-.openbtn {
-  /* font-size: 20px; */
-  cursor: pointer;
-  /* background-color: #111; */
-  /* color: white; */
-  padding: 10px 15px;
-  border: none;
-  width: 25px;
-  height: 25px;
-}
-
-.openbtn:hover {
-  background-color: rgb(173, 173, 173);
+.togglebtn {
+  z-index: 10;
 }
