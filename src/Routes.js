@@ -105,16 +105,18 @@ var routes = [
   },
 
   {
+    path: "/dashboard",
+    component: Dashboard,
+    name: "dashboard",
+  },
+  
+  {
     path: "/",
     component: Home,
     name: "home",
   },
 
-  {
-    path: "/dashboard",
-    component: Dashboard,
-    name: "dashboard",
-  },
+
 ];
 
 export default routes;
