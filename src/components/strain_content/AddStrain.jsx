@@ -29,7 +29,9 @@ export class AddStrain extends Component {
     const name = target.name;
 
     if (target.type === "file") {
-      this.state[name] = target.files[0];
+      this.setState({
+        [name]: target.files[0],
+      });
     } else {
       this.setState({
         [name]: value,
