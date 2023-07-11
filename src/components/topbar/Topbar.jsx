@@ -39,6 +39,11 @@ export default class Topbar extends Component {
                 </Link>
               </li>
               <li className="topBarButton">
+                <Link className="topBarOption" to="/dashboard">
+                  Dashboard
+                </Link>
+              </li>
+              <li className="topBarButton">
                 <Link className="topBarOption" to="/about">
                   About
                 </Link>
