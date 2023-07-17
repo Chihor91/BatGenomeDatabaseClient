@@ -110,7 +110,6 @@ export class CategoryList extends Component {
   render() {
     return (
       <div>
-        <Sidebar Crumb={this.props.Crumb} Match={this.props.match} />
         <div className="main_name">
           <div className="main_name_center">{this.props.Category} Database</div>{" "}
           <div className="mid_title_bar">
