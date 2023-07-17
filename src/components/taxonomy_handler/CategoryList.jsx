@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Sidebar from "../sidebar/Sidebar";
 import history from "../../history";
 import "./TaxonomyHandler.css";
 import { withRouter } from "react-router-dom";
