@@ -55,13 +55,6 @@ export default class Topbar extends Component {
                 </Link>
               </li>
               <li className="topBarButton">
-                <Link className="topBarOption" to="/dashboard">
-                <Button size="large" variant="text" sx={styles}>
-                    Dashboard
-                  </Button>
-                </Link>
-              </li>
-              <li className="topBarButton">
                 <Link className="topBarOption" to="/about">
                 <Button size="large" variant="text" sx={styles}>
                     About
@@ -70,7 +63,7 @@ export default class Topbar extends Component {
               </li>
               <li className="topBarButton">
                 <Link className="topBarOption" to="/strain">
-                <Button size="large" variant="text" sx={styles}>
+                  <Button size="large" variant="text" sx={styles}>
                     Strain
                   </Button>
                 </Link>
@@ -82,56 +75,56 @@ export default class Topbar extends Component {
                   </Button>
                 </Link>
               </li>
-              <li className="topBarButton">
-                <Link
-                  className="topBarOption"
-                  to={
-                    localStorage.logged_in === undefined ||
-                    localStorage.logged_in === "false"
-                      ? "/login"
-                      : "/profile"
-                  }
-                >
-                  <Button size="large" variant="text" sx={styles}>
-                  {
-                    localStorage.logged_in === undefined ||
-                    localStorage.logged_in === "false"
-                      ? "Login"
-                      : "Profile"
-                  }
-                  </Button>
-                </Link>
-              </li>
-              {localStorage.logged_in === undefined ||
-              localStorage.logged_in === "false" ? (
-                <div></div>
-              ) : (
-                <li
-                  className="topBarButton"
-                  onClick={() => {
-                    localStorage.clear();
-                    history.push("/login");
-                    window.location.reload();
-                  }}
-                >
-                  <Link className="topBarOption" to="/home">
-                    <svg
-                      className="w-6 h-6 logout_button"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-                      />
-                    </svg>
-                  </Link>
-                </li>
-              )}
+              <>
+                {
+                  localStorage.logged_in === undefined ||
+                  localStorage.logged_in === "false"  ?
+                  <>
+                    <li className="topBarButton">
+                      <Link
+                        className="topBarOption"
+                        to="/login"
+                      >
+                        <Button size="large" variant="text" sx={styles}>
+                          Login
+                        </Button>
+                      </Link>
+                    </li>
+                  </>
+                  :
+                  <>
+                    <li className="topBarButton">
+                      <Link
+                        className="topBarOption"
+                        to="/profile"
+                      >
+                        <Button size="large" variant="text" sx={styles}>
+                          Profile
+                        </Button>
+                      </Link>
+                    </li>
+                    <li className="topBarButton">
+                      <Link
+                        className="topBarOption"
+                        to="/profile"
+                      >
+                        <Button 
+                          size="large" 
+                          variant="text" 
+                          sx={styles} 
+                          onClick={() => {
+                            localStorage.clear();
+                            history.push("/login");
+                            window.location.reload();
+                          }}
+                        >
+                          Logout
+                        </Button>
+                      </Link>
+                    </li>
+                  </>
+                }
+              </>
             </ul>
           </div>
         </div>
