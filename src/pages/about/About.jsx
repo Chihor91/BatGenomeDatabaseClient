@@ -7,7 +7,6 @@ export class About extends Component {
     return (
       <div>
         <Breadcrumb Crumb={this.props.Crumb} Match={this.props.match} />
-        About page
       </div>
     );
   }

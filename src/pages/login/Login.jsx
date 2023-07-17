@@ -8,7 +8,6 @@ export class Login extends Component {
     return (
       <div>
         <Breadcrumb Crumb={this.props.Crumb} Match={this.props.match} />
-        <div>Login Page</div>
         <LoginForm />
       </div>
     );

@@ -7,7 +7,6 @@ export class Dashboard extends Component {
     return (
       <div>
         <Breadcrumb Crumb={this.props.Crumb} Match={this.props.match} />
-        Dashboard
       </div>
     );
   }
