@@ -36,7 +36,7 @@ export default class Sidebar extends Component {
         {/* &emsp; <Breadcrumb Crumb={this.props.Crumb} Match={this.props.Match} /> */}
         <div className={this.state.classname} onClick={this.toggle_show}>
           <Link to="/">Home</Link>
-          <Link to="/dashboard">Dashboard</Link>
+          {/* <Link to="/dashboard">Dashboard</Link> */}
           <Link to="/about">About</Link>
           <Link to="/strain">Strain</Link>
           <Link to="/taxonomy">Taxonomy</Link>
