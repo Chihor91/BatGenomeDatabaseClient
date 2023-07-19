@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import "./Topbar.css";
 import { Link } from "react-router-dom";
 import history from "../..//history";
-import Sidebar from "../sidebar/Sidebar";
+// import Sidebar from "../sidebar/Sidebar";
 import { Button } from "@mui/material";
+import logo from '../../images/logo_1.png';
 
 console.log("topbar logged_in", localStorage.logged_in);
 
@@ -11,7 +12,7 @@ const styles = {
   color: "#101010",
   fontWeight: "bold",
   fontFamily: "Monospace",
-  fontSize: 20,
+  fontSize: "1.5vw",
   '&:hover': {
     backgroundColor: "#d4b66c"
   }
@@ -37,10 +38,11 @@ export default class Topbar extends Component {
       <div className="topBar">
         <div className="topBarWrapper">
           <div className="topLeft">
-            <Sidebar />
+            {/* <Sidebar /> */}
             <h1>
               <a className="logo" href="/">
-                Bat Genome Database
+                {/* Bat Genome Database */}
+                <img src={logo} alt="logo"/>
               </a>
             </h1>
           </div>
@@ -49,7 +51,7 @@ export default class Topbar extends Component {
               <li className="topBarButton">
                 
                 <Link className="topBarOption" to="/">
-                  <Button size="large" variant="text" sx={styles}>
+                  <Button variant="text" sx={styles}>
                     Home
                   </Button>
                 </Link>
