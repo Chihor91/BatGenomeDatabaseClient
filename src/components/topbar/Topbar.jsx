@@ -1,136 +1,109 @@
-import React, { Component } from "react";
-import "./Topbar.css";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import history from "../..//history";
-// import Sidebar from "../sidebar/Sidebar";
+import logo from "../../images/logo_1.png";
+import history from "../../history";
 import { Button } from "@mui/material";
-import logo from '../../images/logo_1.png';
-
-console.log("topbar logged_in", localStorage.logged_in);
+import "./Topbar.css";
+import TaxSidebar from "../sidebar/TaxSidebar";
 
 const styles = {
-  color: "#101010",
-  fontWeight: "bold",
-  fontFamily: "Monospace",
-  fontSize: "1.5vw",
-  '&:hover': {
-    backgroundColor: "#d4b66c"
-  }
+    color: "#101010",
+    fontWeight: "bold",
+    fontFamily: "Monospace",
+    fontSize: "1.5vw",
+    '&:hover': {
+      backgroundColor: "#d4b66c"
+    }
 };
 
-export default class Topbar extends Component {
-  constructor(props) {
-    super(props);
+export default function TopBar() {
 
-    this.state = {
-      login: localStorage.logged_in,
-    };
-  }
+    const [loggedIn, setLoggedIn] = useState(localStorage.logged_in);
+    const [sidebar, setSidebar] = useState(false);
 
-  componentDidMount() {
-    this.setState({
-      login: localStorage.logged_in,
-    });
-  }
 
-  render() {
-    return (
-      <div className="topBar">
-        <div className="topBarWrapper">
-          <div className="topLeft">
-            {/* <Sidebar /> */}
-            <h1>
-              <a className="logo" href="/">
-                {/* Bat Genome Database */}
-                <img src={logo} alt="logo"/>
-              </a>
-            </h1>
-          </div>
-          <div className="topRight">
-            <ul className="pages">
-              <li className="topBarButton">
-                
-                <Link className="topBarOption" to="/">
-                  <Button variant="text" sx={styles}>
-                    Home
-                  </Button>
-                </Link>
-              </li>
-              <li className="topBarButton">
-                <Link className="topBarOption" to="/about">
-                <Button size="large" variant="text" sx={styles}>
-                    About
-                  </Button>
-                </Link>
-              </li>
-              <li className="topBarButton">
-                <Link className="topBarOption" to="/strain">
-                  <Button size="large" variant="text" sx={styles}>
-                    Strain
-                  </Button>
-                </Link>
-              </li>
-              <li className="topBarButton">
-                <Link className="topBarOption" to="/taxonomy">
-                <Button size="large" variant="text" sx={styles}>
-                    Taxonomy
-                  </Button>
-                </Link>
-              </li>
-              <>
-                {
-                  localStorage.logged_in === undefined ||
-                  localStorage.logged_in === "false"  ?
-                  <>
+    return(
+        <div className="topBar">
+            <div className="topLeft">
+                <TaxSidebar sidebar={sidebar} setSidebar={setSidebar} />
+                <a className="logo" href="/">
+                    {/* Bat Genome Database */}
+                    <img src={logo} alt="logo"/>
+                </a>
+            </div>
+            <div className="topRight">
+                <ul className="pages">
                     <li className="topBarButton">
-                      <Link
-                        className="topBarOption"
-                        to="/login"
-                      >
-                        <Button size="large" variant="text" sx={styles}>
-                          Login
-                        </Button>
-                      </Link>
-                    </li>
-                  </>
-                  :
-                  <>
-                    <li className="topBarButton">
-                      <Link
-                        className="topBarOption"
-                        to="/profile"
-                      >
-                        <Button size="large" variant="text" sx={styles}>
-                          Profile
-                        </Button>
-                      </Link>
+                        <Link className="topBarOption" to="/">
+                            <Button variant="text" sx={styles}>
+                                Home
+                            </Button>
+                        </Link>
                     </li>
                     <li className="topBarButton">
-                      <Link
-                        className="topBarOption"
-                        to="/profile"
-                      >
-                        <Button 
-                          size="large" 
-                          variant="text" 
-                          sx={styles} 
-                          onClick={() => {
-                            localStorage.clear();
-                            history.push("/login");
-                            window.location.reload();
-                          }}
-                        >
-                          Logout
-                        </Button>
-                      </Link>
+                        <Link className="topBarOption" to="/about">
+                            <Button size="large" variant="text" sx={styles}>
+                                About
+                            </Button>
+                        </Link>
                     </li>
-                  </>
-                }
-              </>
-            </ul>
-          </div>
+                    <li className="topBarButton">
+                        <Link className="topBarOption" to="/strain">
+                            <Button size="large" variant="text" sx={styles}>
+                                Strain
+                            </Button>
+                        </Link>
+                    </li>
+                    <li className="topBarButton">
+                            <Button size="large" variant="text" sx={styles} onClick={() => setSidebar(!sidebar)}>
+                                Taxonomy
+                            </Button>
+                    </li>
+                    {
+                        loggedIn ?
+                        <>
+                            <li className="topBarButton">
+                            <Link
+                                className="topBarOption"
+                                to="/profile"
+                            >
+                                <Button size="large" variant="text" sx={styles}>
+                                Profile
+                                </Button>
+                            </Link>
+                            </li>
+                            <li className="topBarButton">
+                                <Button 
+                                size="large" 
+                                variant="text" 
+                                sx={styles} 
+                                onClick={() => {
+                                    localStorage.clear();
+                                    history.push("/login");
+                                    window.location.reload();
+                                }}
+                                >
+                                Logout
+                                </Button>
+                            </li>
+                        </>
+                        :
+                        <>
+                            <li className="topBarButton">
+                                <Link
+                                    className="topBarOption"
+                                    to="/login"
+                                >
+                                    <Button size="large" variant="text" sx={styles}>
+                                    Login
+                                    </Button>
+                                </Link>
+                            </li>                        
+                        </>
+                    }
+                </ul>
+            </div>
         </div>
-      </div>
-    );
-  }
+    )
+
 }
