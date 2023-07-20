@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./TaxonomyHandler";
 import axios from "axios";
 import { categoryContents } from "./CategoryContents";
 import ParentList from "./ParentList";
