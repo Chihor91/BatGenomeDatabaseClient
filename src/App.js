@@ -1,4 +1,4 @@
-import Topbar from "./components/topbar/Topbar";
+import TopBar from "./components/topbar/Topbar";
 import { Route, Router, Switch } from "react-router-dom";
 import routes from "./Routes";
 import history from "./history";
@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="App">
       <Router history={history}>
-        <Topbar />
+        <TopBar />
 
         <Switch>
           {routes.map((route, route_id) => {
