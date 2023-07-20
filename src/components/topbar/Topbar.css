@@ -5,6 +5,7 @@
   box-shadow: 0px 1px 5px #404040;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 
@@ -19,25 +20,13 @@
 }
 
 .topBarButton {
-  margin-right: 10px
-}
-
-.topBarOption {
-  color: black;
-  text-decoration: none;
-  margin-right: 10px;
-}
-
-.pages {
-  display: flex;
-  align-items: center;
-  list-style-type: none;
+  margin-right: 20px
 }
 
 .logo img {
   /* font-weight: bold ;  */
   /* font-size: 35px ; */
-  width: 50%;
+  width: 50vh;
   /* font-family: monospace;
   color: darkgoldenrod; */
   cursor: pointer;
