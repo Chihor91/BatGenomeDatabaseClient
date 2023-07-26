@@ -29,7 +29,6 @@ export class Strain extends Component {
   render() {
     return (
       <div>
-        <Breadcrumb Crumb={this.props.Crumb} Match={this.props.match} />
         <div className="strain_content">
           <div className="title_bar">
             <div className="left_title_bar">
