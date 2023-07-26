@@ -71,6 +71,8 @@ export default class ParentList extends Component {
             onChange={this.props.onChange}
             // onClick={this.props.onChange}
           >
+            <option>
+            </option>
             {this.state.content.map((parent, parent_id) => {
               return (
                 <option key={parent_id} value={parent.id}>
