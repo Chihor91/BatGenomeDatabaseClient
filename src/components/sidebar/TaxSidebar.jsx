@@ -1,15 +1,13 @@
  import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Sidebar.css";
-import MenuIcon from '@mui/icons-material/Menu';
-import { IconButton } from "@mui/material";
 import { useEffect } from "react";
 
 export default function TaxSidebar({ sidebar, setSidebar }){
     const [active, setActive] = useState("inactive")
     useEffect(() =>
       sidebar ? setActive("sidebar") : setActive("sidebar_inactive")
-    )
+    , [sidebar])
     return (
       <div className="sidebarFormat" onClick={() => setSidebar(!sidebar)}>
         {/* &emsp; <Breadcrumb Crumb={this.props.Crumb} Match={this.props.Match} /> */}
