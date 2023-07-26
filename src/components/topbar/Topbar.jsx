@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo_1.png";
 import history from "../../history";
@@ -6,6 +6,7 @@ import { Button } from "@mui/material";
 import "./Topbar.css";
 import TaxSidebar from "../sidebar/TaxSidebar";
 import Sidebar from "../sidebar/Sidebar";
+import AuthContext from "../../context/AuthContext";
 
 const styles = {
     color: "#101010",
@@ -18,8 +19,7 @@ const styles = {
 };
 
 export default function TopBar() {
-
-    const [loggedIn, setLoggedIn] = useState(localStorage.logged_in);
+    let {user, logoutUser} = useContext(AuthContext);
     const [sidebar, setSidebar] = useState(false);
     const [showOptions, setShowOptions] = useState(true);
 
@@ -27,7 +27,7 @@ export default function TopBar() {
         window.innerWidth <= 1280 ?
             setShowOptions(false)
             : setShowOptions(true)
-    })
+    }, [])
 
     const windowResize = () => {
         window.innerWidth <= 1280 ?
@@ -80,7 +80,7 @@ export default function TopBar() {
                         </Button>
                 </li>
                 {
-                    loggedIn ?
+                    user ?
                     <>
                         <li className="topBarButton">
                         <Link to="/profile">
@@ -94,11 +94,7 @@ export default function TopBar() {
                             size="large" 
                             variant="text" 
                             sx={styles} 
-                            onClick={() => {
-                                localStorage.clear();
-                                history.push("/login");
-                                window.location.reload();
-                            }}
+                            onClick={logoutUser}
                             >
                             Logout
                             </Button>
