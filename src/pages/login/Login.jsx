@@ -1,17 +1,20 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
+import AuthContext from "../../context/AuthContext";
 import LoginForm from "../../components/login_form/LoginForm";
-import Breadcrumb from "../../components/sidebar/Breadcrumb";
 import { withRouter } from "react-router";
 
-export class Login extends Component {
-  render() {
-    return (
-      <div>
-        <Breadcrumb Crumb={this.props.Crumb} Match={this.props.match} />
-        <LoginForm />
+
+export default function Login(){
+  let { loginUser } = useContext(AuthContext)
+  return (
+    <div>
+        {/* <LoginForm /> */}
+
+        <form onSubmit={loginUser}>
+          <input type="text" name="username" placeholder="Enter username" />
+          <input type="password" name="password" placeholder="Enter password" />
+          <input type="submit" />
+        </form>
       </div>
     );
-  }
 }
-
-export default withRouter(Login);
