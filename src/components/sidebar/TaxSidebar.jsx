@@ -4,7 +4,7 @@ import "./Sidebar.css";
 import { useEffect } from "react";
 
 export default function TaxSidebar({ sidebar, setSidebar }){
-    const [active, setActive] = useState("inactive")
+    const [active, setActive] = useState("sidebar_inactive")
     useEffect(() =>
       sidebar ? setActive("sidebar") : setActive("sidebar_inactive")
     , [sidebar])
