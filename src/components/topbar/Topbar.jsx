@@ -21,6 +21,7 @@ const styles = {
 export default function TopBar() {
     let {user, logoutUser} = useContext(AuthContext);
     const [sidebar, setSidebar] = useState(false);
+    const [taxSidebar, setTaxSidebar] = useState(false);
     const [showOptions, setShowOptions] = useState(true);
 
     useEffect(() => {
@@ -37,14 +38,22 @@ export default function TopBar() {
     window.addEventListener('resize', windowResize)
 
     const resetSidebar = () => {
-        sidebar && setSidebar(false)
+        taxSidebar && setTaxSidebar(false)
     }
 
     return(
         <div className="topBar" onClick={resetSidebar}>
             <div className="topLeft">
-                { !showOptions && <Sidebar /> }
-                <TaxSidebar sidebar={sidebar} setSidebar={setSidebar} />
+                { 
+                    !showOptions && 
+                    <Sidebar 
+                        sidebar={sidebar} 
+                        setSidebar= {setSidebar} 
+                        taxSidebar={taxSidebar}
+                        setTaxSidebar={setTaxSidebar}
+                    /> 
+                }
+                <TaxSidebar sidebar={taxSidebar} setSidebar={setTaxSidebar} />
                 <a className="logo" href="/">
                     {/* Bat Genome Database */}
                     <img src={logo} alt="logo"/>
@@ -75,7 +84,7 @@ export default function TopBar() {
                     </Link>
                 </li>
                 <li className="topBarButton">
-                        <Button size="large" variant="text" sx={styles} onClick={() => setSidebar(!sidebar)}>
+                        <Button size="large" variant="text" sx={styles} onClick={() => setTaxSidebar(!taxSidebar)}>
                             Taxonomy
                         </Button>
                 </li>
