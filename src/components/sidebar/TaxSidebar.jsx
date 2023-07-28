@@ -10,10 +10,8 @@ export default function TaxSidebar({ sidebar, setSidebar }){
     , [sidebar])
     return (
       <div className="sidebarFormat" onClick={() => setSidebar(!sidebar)}>
-        {/* &emsp; <Breadcrumb Crumb={this.props.Crumb} Match={this.props.Match} /> */}
         <div className={active}>
           <Link to="/taxonomy/domain">Domain</Link>
-          {/* <Link to="/dashboard">Dashboard</Link> */}
           <Link to="/taxonomy/phylum">Phylum</Link>
           <Link to="/taxonomy/class">Class</Link>
           <Link to="/taxonomy/order">Order</Link>

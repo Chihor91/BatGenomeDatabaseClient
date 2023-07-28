@@ -1,15 +1,9 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router";
-import Breadcrumb from "../../components/sidebar/Breadcrumb";
+import React from "react";
 
-export class About extends Component {
-  render() {
+export default function About(){
     return (
       <div>
-        <Breadcrumb Crumb={this.props.Crumb} Match={this.props.match} />
+        ABOUT
       </div>
     );
-  }
 }
-
-export default withRouter(About);

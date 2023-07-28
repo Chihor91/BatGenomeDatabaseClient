@@ -1,15 +1,10 @@
-import React, { Component } from "react";
-import { withRouter } from 'react-router';
-import Breadcrumb from "../../components/sidebar/Breadcrumb";
+import React from "react";
 
-export class Dashboard extends Component {
-  render() {
+export default function Dashboard(){
     return (
       <div>
-        <Breadcrumb Crumb={this.props.Crumb} Match={this.props.match} />
+        DASHBOARD
       </div>
     );
-  }
 }
 
-export default withRouter(Dashboard);

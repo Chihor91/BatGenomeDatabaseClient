@@ -3,7 +3,6 @@ import { withRouter } from "react-router-dom";
 import StrainList from "../../components/strain_content/StrainList";
 import "./Strain.css";
 import AddStrain from "../../components/strain_content/AddStrain";
-import Breadcrumb from "../../components/sidebar/Breadcrumb";
 
 export class Strain extends Component {
   constructor(props) {
