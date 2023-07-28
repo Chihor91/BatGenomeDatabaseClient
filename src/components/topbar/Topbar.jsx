@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo_1.png";
-import history from "../../history";
 import { Button } from "@mui/material";
 import "./Topbar.css";
 import TaxSidebar from "../sidebar/TaxSidebar";

@@ -36,7 +36,7 @@
 }
 
 /* The sidebar links */
-.sidebar a {
+.sidebar a, button {
   padding: 0px .75em .75em 1em;
   text-decoration: none;
   font-size: 25px;
@@ -44,14 +44,17 @@
   display: block;
   transition: 0.3s;
   font-family: monospace;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 /* When you mouse over the navigation links, change their color */
-.sidebar a:hover {
+.sidebar a:hover, button:hover {
   color: #dfb66c;
 }
 
-.sidebar_inactive a {
+.sidebar_inactive a, button {
   padding: 0px .75em .75em 1em;
   text-decoration: none;
   font-size: 25px;

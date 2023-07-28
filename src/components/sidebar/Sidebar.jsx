@@ -10,7 +10,7 @@ export default function Sidebar({ sidebar, setSidebar, taxSidebar, setTaxSidebar
   const [active, setActive] = useState("sidebar_inactive");
   useEffect(() => {
     sidebar ? setActive("sidebar") : setActive("sidebar_inactive")
-  })
+  }, [sidebar])
 
   return(
     <div className="sidebarFormat">
@@ -23,12 +23,12 @@ export default function Sidebar({ sidebar, setSidebar, taxSidebar, setTaxSidebar
           {/* <Link to="/dashboard">Dashboard</Link> */}
           <Link to="/about">About</Link>
           <Link to="/strain">Strain</Link>
-          <a onClick={() => setTaxSidebar(!taxSidebar)}>Taxonomy</a>
+          <button onClick={() => setTaxSidebar(!taxSidebar)}>Taxonomy</button>
           {
             user ?
             <>
             <Link to="/profile">Profile</Link>
-            <a onClick={logoutUser}>Logout</a>
+            <button onClick={logoutUser}>Logout</button>
             </>
             :
             <Link to="/login">Login</Link>
