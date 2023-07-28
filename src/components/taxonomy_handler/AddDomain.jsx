@@ -53,7 +53,8 @@ export class AddDomain extends Component {
 
     let fd = new FormData();
     for (const [key, value] of Object.entries(this.state)) {
-      console.log(key, value);
+      console.log(value);
+      
       fd.append(key, value);
     }
 

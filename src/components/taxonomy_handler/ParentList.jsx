@@ -49,17 +49,6 @@ export default class ParentList extends Component {
     }
   }
 
-  // componentDidUpdate() {
-  //   // if (this.props.setDefault) {
-  //   //   this.props.setDefault(
-  //   //     this.state.content[0].id,
-  //   //     this.props.category.toLowerCase()
-  //   //   );
-  //     // console.log("is this loading");
-  //     // console.log(this.state.content);
-  //   }
-  // }
-
   render() {
     if (this.state.isLoaded) {
       return (
@@ -69,10 +58,9 @@ export default class ParentList extends Component {
             list="parent"
             name={this.props.name}
             onChange={this.props.onChange}
-            // onClick={this.props.onChange}
+            required
           >
-            <option>
-            </option>
+            <option value="">-- Select Parent --</option>
             {this.state.content.map((parent, parent_id) => {
               return (
                 <option key={parent_id} value={parent.id}>
