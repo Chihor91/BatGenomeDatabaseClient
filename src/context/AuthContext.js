@@ -13,34 +13,38 @@ export const AuthProvider = ({children}) => {
     let [authTokens, setAuthTokens] = useState(localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')): null)
     let [user, setUser] = useState(localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null)
     let [loading, setLoading] = useState(true)
-    
+    if(localStorage.getItem('authTokens')) 
+        axios.defaults.headers.common["Authorization"] = "Bearer " + JSON.parse(localStorage.getItem('authTokens')).access;
     const history = useHistory()
 
     let updateToken = async () => {
-        let api = axios.create({ 
-            baseURL: axios.defaults.baseURL + "user/login/refresh/", 
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-        api.post("/", {
-            'refresh':authTokens.refresh,
-        }).then((response) => {
-            if(response.status === 200){
-                let tokens = {
-                    access: response.data.access,
-                    refresh: response.data.refresh
+        if(authTokens){
+            let api = axios.create({ 
+                baseURL: axios.defaults.baseURL + "user/login/refresh/", 
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            api.post("/", {
+                'refresh':authTokens.refresh,
+            }).then((response) => {
+                if(response.status === 200){
+                    let tokens = {
+                        access: response.data.access,
+                        refresh: response.data.refresh
+                    }
+                    setAuthTokens(tokens)
+                    localStorage.setItem('authTokens', JSON.stringify(tokens))
+                    axios.defaults.headers.common["Authorization"] = "Bearer " + JSON.parse(localStorage.getItem('authTokens')).access;
+                }else{
+                    logoutUser()
                 }
-                setAuthTokens(tokens)
-                localStorage.setItem('authTokens', JSON.stringify(tokens))
-            }else{
-                logoutUser()
-            }
-
-            if(loading){
-                setLoading(false)
-            }
-        })
+    
+                if(loading){
+                    setLoading(false)
+                }
+            })
+        }
     }
     
     let loginUser = async (e) => {
