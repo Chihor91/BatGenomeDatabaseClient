@@ -13,7 +13,8 @@ const styles = {
     fontFamily: "Monospace",
     fontSize: "24px",
     '&:hover': {
-      backgroundColor: "#d4b66c"
+      backgroundColor: "#d4b66c",
+      color: "#101010"
     }
 };
 
